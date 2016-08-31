@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
 import java.util.Date;
+import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
@@ -18,7 +19,7 @@ import static org.junit.Assert.assertThat;
 public class ReportRepositoryIntegrationTest extends AbstractIntegrationTest{
 
     @Autowired
-    ReportRepository<FRReportESTA> eastRepository;
+    ESTARepository eastRepository;
 
 
     @Test
@@ -30,6 +31,11 @@ public class ReportRepositoryIntegrationTest extends AbstractIntegrationTest{
         assertThat(result.getId(), is(notNullValue()));
         FRReportESTA rpt = eastRepository.findByOid("fitech");
         assertThat(rpt, is(notNullValue()));
+
+        List<FRReportESTA> aRpt = eastRepository.findReportByAccountName("fitech");
+
+        assertThat(aRpt.size(), is(1));
+
     }
 
 }

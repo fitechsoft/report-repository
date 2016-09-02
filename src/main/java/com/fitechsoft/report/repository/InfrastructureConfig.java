@@ -15,11 +15,11 @@
  */
 package com.fitechsoft.report.repository;
 
-import com.fitechsoft.report.domain.FRDepartment;
 import com.fitechsoft.report.domain.FRUser;
-import com.fitechsoft.repository.core.SubjectRepository;
+import org.hsqldb.util.DatabaseManagerSwing;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.orm.jpa.JpaTransactionManager;
@@ -29,6 +29,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.annotation.PostConstruct;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
@@ -84,5 +85,13 @@ public class InfrastructureConfig {
         JpaTransactionManager txManager = new JpaTransactionManager();
         txManager.setEntityManagerFactory(entityManagerFactory().getObject());
         return txManager;
+    }
+
+    @PostConstruct
+    public void startDBManager() {
+
+        //hsqldb
+        DatabaseManagerSwing.main(new String[]{"--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
+
     }
 }

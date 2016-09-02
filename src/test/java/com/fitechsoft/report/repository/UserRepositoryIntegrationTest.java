@@ -20,6 +20,8 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.io.IOException;
+
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
 import static org.junit.Assert.assertThat;
@@ -54,6 +56,9 @@ public class UserRepositoryIntegrationTest extends AbstractIntegrationTest {
         FRUser result = userRepository.findByIdentifier(fitech.getIdentifier());
 
         assertThat(result, is(fitech));
+
+        System.out.println("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"+result.getFirstName());
+
     }
 
 }

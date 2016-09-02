@@ -1,0 +1,2 @@
+insert into Employee(ID, First_Name, Last_Name, Start_Date, End_Date, Salary, City, Description) values (1,'Jason', 'Martin',  to_date('19960725','YYYYMMDD'), to_date('20060725','YYYYMMDD'), 1234.56, 'Toronto', 'Programmer');
+insert into Employee(ID, First_Name, Last_Name, Start_Date, End_Date, Salary, City, Description) values (2,'Alison','Mathews', to_date('19760321','YYYYMMDD'), to_date('19860221','YYYYMMDD'), 2234.78, 'Vancouver','Tester');

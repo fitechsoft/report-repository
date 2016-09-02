@@ -5,6 +5,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class ReportRepositoryIntegrationTest extends AbstractIntegrationTest{
 
         assertThat(aRpt.size(), is(1));
 
+        try {
+            System.in.read();
+        }catch (IOException e){
+
+        }
     }
 
 }

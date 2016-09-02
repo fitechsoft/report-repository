@@ -15,12 +15,20 @@
  */
 package com.fitechsoft.report.repository;
 
+import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
+import org.springframework.jdbc.datasource.DataSourceUtils;
+import org.springframework.jdbc.datasource.init.ResourceDatabasePopulator;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.sql.DataSource;
+import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
@@ -40,21 +48,25 @@ public abstract class AbstractIntegrationTest {
      *
      * @throws SQLException
      */
-//    @Before
-//    public void populateDatabase() throws SQLException {
-//
-//        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
-//        populator.addScript(new ClassPathResource("data.sql"));
-//
-//        Connection connection = null;
-//
-//        try {
-//            connection = DataSourceUtils.getConnection(dataSource);
-//            populator.populate(connection);
-//        } finally {
-//            if (connection != null) {
-//                DataSourceUtils.releaseConnection(connection, dataSource);
-//            }
-//        }
-//    }
+    @Before
+    public void populateDatabase() throws SQLException {
+
+        ResourceDatabasePopulator populator = new ResourceDatabasePopulator();
+        populator.addScript(new ClassPathResource("db/sql/create-db.sql"));
+        populator.addScript(new ClassPathResource("db/sql/insert-data.sql"));
+
+        Connection connection = null;
+
+        try {
+            connection = DataSourceUtils.getConnection(dataSource);
+            populator.populate(connection);
+
+
+        } finally {
+            if (connection != null) {
+                DataSourceUtils.releaseConnection(connection, dataSource);
+            }
+        }
+
+    }
 }

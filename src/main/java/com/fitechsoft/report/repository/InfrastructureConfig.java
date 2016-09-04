@@ -15,9 +15,12 @@
  */
 package com.fitechsoft.report.repository;
 
+import com.fitechsoft.report.dao.FRReportDAO;
+import com.fitechsoft.report.dao.FRReportDAOImpl;
 import com.fitechsoft.report.domain.FRUser;
 import org.hsqldb.util.DatabaseManagerSwing;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
@@ -43,6 +46,7 @@ import javax.sql.DataSource;
  */
 @Configuration
 @EnableTransactionManagement
+@ComponentScan(basePackages = {"com.fitechsoft.report.dao"})
 public class InfrastructureConfig {
 
     /**
@@ -57,6 +61,7 @@ public class InfrastructureConfig {
         EmbeddedDatabaseBuilder builder = new EmbeddedDatabaseBuilder();
         return builder.setType(EmbeddedDatabaseType.HSQL).build();
     }
+
 
     /**
      * Sets up a {@link LocalContainerEntityManagerFactoryBean} to use Hibernate. Activates picking up entities from the
@@ -73,7 +78,7 @@ public class InfrastructureConfig {
 
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan(FRUser.class.getPackage().getName(), UserRepository.class.getPackage().getName());
+        factory.setPackagesToScan(FRUser.class.getPackage().getName(), FRReportDAOImpl.class.getPackage().getName());
         factory.setDataSource(dataSource());
 
         return factory;
@@ -91,7 +96,7 @@ public class InfrastructureConfig {
     public void startDBManager() {
 
         //hsqldb
-        DatabaseManagerSwing.main(new String[]{"--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
+        //DatabaseManagerSwing.main(new String[]{"--url", "jdbc:hsqldb:mem:testdb", "--user", "sa", "--password", ""});
 
     }
 }

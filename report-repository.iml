@@ -14,6 +14,7 @@
     <orderEntry type="module" module-name="report-domain" />
     <orderEntry type="module" module-name="core-domain" />
     <orderEntry type="module" module-name="core-repository" />
+    <orderEntry type="library" name="Maven: org.apache.commons:commons-lang3:3.4" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-jpa:1.10.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.data:spring-data-commons:1.12.2.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-orm:4.2.6.RELEASE" level="project" />

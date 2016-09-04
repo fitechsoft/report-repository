@@ -11,6 +11,6 @@ import java.util.List;
  */
 public interface ESTARepository extends ReportRepository<FRReportESTA> {
 
-    @Query("select r from FRReportESTA r join r.accountName a where (a.fieldValue = :accountName)")
-    public List<FRReportESTA> findReportByAccountName(@Param("accountName")String accountName);
+//    @Query("select r from FRReportESTA r join r.accountName a where (a.fieldValue = :accountName)")
+//    public List<FRReportESTA> findReportByAccountName(@Param("accountName")String accountName);
 }

@@ -1,12 +1,12 @@
 package com.fitechsoft.report.repository;
 
 import com.fitechsoft.report.domain.FRInstitution;
-import com.fitechsoft.repository.core.SubjectRepository;
+import com.fitechsoft.repository.core.FDSubjectRepository;
 
 /**
  * @author Chun Cao
  */
-public interface InstitutionRepository extends SubjectRepository<FRInstitution> {
+public interface InstitutionRepository extends FDSubjectRepository<FRInstitution> {
 
 
 }

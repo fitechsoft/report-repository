@@ -25,9 +25,9 @@
 
     <parent>
         <groupId>com.fitechsoft</groupId>
-        <artifactId>fitech-report</artifactId>
+        <artifactId>report-common</artifactId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../fitech-report</relativePath>
+        <relativePath>../report-common</relativePath>
     </parent>
 
     <artifactId>report-repository</artifactId>

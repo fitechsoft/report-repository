@@ -1,4 +1,4 @@
---DROP TABLE Employee IF EXISTS;
+DROP TABLE Employee IF EXISTS;
 
 create table Employee(
       ID       INTEGER IDENTITY  PRIMARY KEY,

@@ -1,18 +1,12 @@
 package com.fitechsoft.report.repository;
 
 import com.fitechsoft.report.dao.FRReportDAO;
-import com.fitechsoft.report.domain.FRReportESTA;
 import com.fitechsoft.report.domain.FRReportRow;
-import com.sun.deploy.security.ruleset.ExceptionRule;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
-
-import java.io.IOException;
-import java.util.Date;
-import java.util.List;
 
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNull.notNullValue;
